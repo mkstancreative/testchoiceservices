@@ -207,14 +207,14 @@ export default function Gallery() {
           </AnimatePresence>
         </motion.div>
 
-        <Reveal delay={0.2} className="mt-10 text-center">
+        {/* <Reveal delay={0.2} className="mt-10 text-center">
           <p className="text-sm text-navy-500">
             Placeholder tiles. Drop real photographs into{" "}
             <code className="rounded bg-navy-100 px-1.5 py-0.5 text-xs">public/gallery/</code> and
             add a <code className="rounded bg-navy-100 px-1.5 py-0.5 text-xs">src</code> to each item
             in <code className="rounded bg-navy-100 px-1.5 py-0.5 text-xs">src/pages/Gallery.jsx</code>.
           </p>
-        </Reveal>
+        </Reveal> */}
       </section>
 
       {/* ------------------------------------------------------ Facility notes */}

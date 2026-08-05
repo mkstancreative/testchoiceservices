@@ -42,12 +42,21 @@ const emptyForm = {
   consent: false,
 };
 
+// The exam name handed over from another page may be a parent exam ("PTE")
+// rather than one of the selectable variants. Map it onto the matching option
+// so the select does not open on a blank value.
+function resolveExamOption(name) {
+  if (!name) return "";
+  const parent = exams.find((e) => e.variants && e.name === name);
+  return parent ? `${parent.name} (version to be confirmed)` : name;
+}
+
 export default function Registration() {
   const location = useLocation();
   const [step, setStep] = useState(0);
   const [form, setForm] = useState({
     ...emptyForm,
-    exam: location.state?.exam ?? "",
+    exam: resolveExamOption(location.state?.exam),
   });
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("idle"); // idle | sending | done | error
@@ -325,11 +334,24 @@ export default function Registration() {
                         onChange={(e) => update("exam", e.target.value)}
                       >
                         <option value="">Select an exam…</option>
-                        {exams.map((e) => (
-                          <option key={e.id} value={e.name}>
-                            {e.name} — {e.full}
-                          </option>
-                        ))}
+                        {exams.map((e) =>
+                          e.variants ? (
+                            <optgroup key={e.id} label={`${e.name} — ${e.full}`}>
+                              {e.variants.map((v) => (
+                                <option key={v.name} value={v.name}>
+                                  {v.name}
+                                </option>
+                              ))}
+                              <option value={`${e.name} (version to be confirmed)`}>
+                                Not sure which version — advise me
+                              </option>
+                            </optgroup>
+                          ) : (
+                            <option key={e.id} value={e.name}>
+                              {e.name} — {e.full}
+                            </option>
+                          )
+                        )}
                         <option value="Other">Other / not listed</option>
                       </select>
                       <FieldError message={errors.exam} />

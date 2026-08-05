@@ -108,7 +108,10 @@ export default function Home() {
     <>
       {/* ---------------------------------------------------------------- Hero */}
       <section className="mesh-dark relative overflow-hidden">
-        <div className="grid-lines absolute inset-0 opacity-50" aria-hidden="true" />
+        <div
+          className="grid-lines absolute inset-0 opacity-50"
+          aria-hidden="true"
+        />
         <div
           className="animate-float absolute right-[8%] top-24 h-72 w-72 rounded-full bg-brand-500/20 blur-3xl"
           aria-hidden="true"
@@ -122,14 +125,19 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <Sparkles className="h-3.5 w-3.5" /> Registration &amp; preparation centre
+              <Sparkles className="h-3.5 w-3.5" /> Registration &amp;
+              preparation centre
             </motion.span>
 
             <motion.h1
               className="mt-7 text-balance text-4xl font-bold leading-[1.06] text-white sm:text-5xl lg:text-[3.9rem]"
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.75, delay: 0.08, ease: [0.21, 0.6, 0.35, 1] }}
+              transition={{
+                duration: 0.75,
+                delay: 0.08,
+                ease: [0.21, 0.6, 0.35, 1],
+              }}
             >
               Sit the exam that opens the{" "}
               <span className="bg-gradient-to-r from-brand-400 via-brand-300 to-gold-400 bg-clip-text text-transparent">
@@ -144,9 +152,9 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              {site.name} handles registration and preparation for TOEFL, IELTS, PTE, SELT, OET,
-              Duolingo, SAT, ACT, GRE, GMAT and CELPIP — so you walk into the test centre knowing
-              exactly what to expect.
+              {site.name} handles registration and preparation for TOEFL, IELTS,
+              PTE, SELT, OET, Duolingo, SAT, ACT, GRE, GMAT and CELPIP — so you
+              walk into the test centre knowing exactly what to expect.
             </motion.p>
 
             <motion.div
@@ -170,13 +178,16 @@ export default function Home() {
               transition={{ duration: 0.7, delay: 0.45 }}
             >
               <span className="flex items-center gap-2">
-                <BadgeCheck className="h-4 w-4 text-brand-400" /> Official board registration
+                <BadgeCheck className="h-4 w-4 text-brand-400" /> Official board
+                registration
               </span>
               <span className="flex items-center gap-2">
-                <Target className="h-4 w-4 text-brand-400" /> Score-targeted coaching
+                <Target className="h-4 w-4 text-brand-400" /> Score-targeted
+                coaching
               </span>
               <span className="flex items-center gap-2">
-                <Star className="h-4 w-4 text-gold-400" /> 4,500+ candidates served
+                <Star className="h-4 w-4 text-gold-400" /> 4,500+ candidates
+                served
               </span>
             </motion.div>
           </div>
@@ -186,7 +197,11 @@ export default function Home() {
             className="lg:col-span-5"
             initial={{ opacity: 0, scale: 0.94, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.85, delay: 0.3, ease: [0.21, 0.6, 0.35, 1] }}
+            transition={{
+              duration: 0.85,
+              delay: 0.3,
+              ease: [0.21, 0.6, 0.35, 1],
+            }}
           >
             <div className="relative rounded-3xl border border-white/15 bg-white/[0.07] p-7 backdrop-blur-xl">
               <div className="flex items-center justify-between">
@@ -203,7 +218,10 @@ export default function Home() {
                   { exam: "IELTS Academic", note: "Weekly · Lagos & Abuja" },
                   { exam: "TOEFL iBT", note: "Multiple slots monthly" },
                   { exam: "PTE Academic", note: "Results in 48 hours" },
-                  { exam: "Duolingo English Test", note: "On demand, from home" },
+                  {
+                    exam: "Duolingo English Test",
+                    note: "On demand, from home",
+                  },
                 ].map((row, i) => (
                   <motion.li
                     key={row.exam}
@@ -213,7 +231,9 @@ export default function Home() {
                     transition={{ duration: 0.5, delay: 0.55 + i * 0.1 }}
                   >
                     <div>
-                      <p className="text-sm font-semibold text-white">{row.exam}</p>
+                      <p className="text-sm font-semibold text-white">
+                        {row.exam}
+                      </p>
                       <p className="text-xs text-navy-300">{row.note}</p>
                     </div>
                     <ArrowRight className="h-4 w-4 shrink-0 text-brand-400" />
@@ -253,7 +273,9 @@ export default function Home() {
                 <p className="font-display text-4xl font-bold text-navy-900 lg:text-5xl">
                   <Counter value={s.value} suffix={s.suffix} />
                 </p>
-                <p className="mt-2 text-sm font-medium text-navy-500">{s.label}</p>
+                <p className="mt-2 text-sm font-medium text-navy-500">
+                  {s.label}
+                </p>
               </div>
             </RevealItem>
           ))}
@@ -279,17 +301,24 @@ export default function Home() {
           <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map((exam) => (
               <RevealItem key={exam.id}>
-                <Link to={`/exams#${exam.id}`} className="card group block h-full">
+                <Link
+                  to={`/exams#${exam.id}`}
+                  className="card group block h-full"
+                >
                   <div
-                    className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${exam.accent} font-display text-sm font-bold text-white shadow-lg`}
+                    className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${exam.accent} font-display text-sm font-bold text-white `}
                   >
                     {exam.name.slice(0, 2).toUpperCase()}
                   </div>
-                  <h3 className="mt-5 font-display text-xl font-bold text-navy-900">{exam.name}</h3>
+                  <h3 className="mt-5 font-display text-xl font-bold text-navy-900">
+                    {exam.name}
+                  </h3>
                   <p className="mt-1 text-xs font-medium uppercase tracking-wider text-brand-600">
                     {exam.board}
                   </p>
-                  <p className="mt-4 text-sm leading-relaxed text-navy-600">{exam.summary}</p>
+                  <p className="mt-4 text-sm leading-relaxed text-navy-600">
+                    {exam.summary}
+                  </p>
                   <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-navy-900 transition-all group-hover:gap-3 group-hover:text-brand-600">
                     Exam details <ArrowRight className="h-4 w-4" />
                   </span>
@@ -316,8 +345,12 @@ export default function Home() {
                 <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
                   <f.icon className="h-6 w-6" />
                 </span>
-                <h3 className="mt-5 font-display text-lg font-bold text-navy-900">{f.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-navy-600">{f.body}</p>
+                <h3 className="mt-5 font-display text-lg font-bold text-navy-900">
+                  {f.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-navy-600">
+                  {f.body}
+                </p>
               </div>
             </RevealItem>
           ))}
@@ -326,7 +359,10 @@ export default function Home() {
 
       {/* --------------------------------------------------------------- Steps */}
       <section className="mesh-dark relative overflow-hidden py-20 lg:py-28">
-        <div className="grid-lines absolute inset-0 opacity-40" aria-hidden="true" />
+        <div
+          className="grid-lines absolute inset-0 opacity-40"
+          aria-hidden="true"
+        />
         <div className="container-page relative">
           <SectionHeading
             dark
@@ -343,8 +379,12 @@ export default function Home() {
                   <span className="font-display text-4xl font-bold text-brand-400/60 transition group-hover:text-brand-400">
                     {s.n}
                   </span>
-                  <h3 className="mt-4 font-display text-lg font-bold text-white">{s.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-navy-300">{s.body}</p>
+                  <h3 className="mt-4 font-display text-lg font-bold text-white">
+                    {s.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-navy-300">
+                    {s.body}
+                  </p>
                 </div>
               </RevealItem>
             ))}
@@ -363,8 +403,9 @@ export default function Home() {
               Coaching built around the score you need — not a generic syllabus
             </h2>
             <p className="mt-5 text-base leading-relaxed text-navy-600 sm:text-lg">
-              A band 6.5 for a UK master's and a band 8 for Australian PR are different jobs. We
-              start with a diagnostic, set the target, and drill only what stands between you and it.
+              A band 6.5 for a UK master's and a band 8 for Australian PR are
+              different jobs. We start with a diagnostic, set the target, and
+              drill only what stands between you and it.
             </p>
 
             <ul className="mt-8 space-y-4">
@@ -405,7 +446,9 @@ export default function Home() {
                   ].map((row, i) => (
                     <div key={row.skill}>
                       <div className="flex items-center justify-between text-sm">
-                        <span className="font-medium text-navy-200">{row.skill}</span>
+                        <span className="font-medium text-navy-200">
+                          {row.skill}
+                        </span>
                         <span className="font-semibold text-white">
                           {row.from.toFixed(1)} → {row.to.toFixed(1)}
                         </span>
@@ -416,7 +459,11 @@ export default function Home() {
                           initial={{ width: 0 }}
                           whileInView={{ width: `${row.pct}%` }}
                           viewport={{ once: true }}
-                          transition={{ duration: 1.1, delay: 0.15 * i, ease: "easeOut" }}
+                          transition={{
+                            duration: 1.1,
+                            delay: 0.15 * i,
+                            ease: "easeOut",
+                          }}
                         />
                       </div>
                     </div>
@@ -424,13 +471,15 @@ export default function Home() {
                 </div>
 
                 <p className="mt-8 text-xs leading-relaxed text-navy-400">
-                  Illustrative of a typical eight-week track. Individual results vary with starting
-                  level and study hours.
+                  Illustrative of a typical eight-week track. Individual results
+                  vary with starting level and study hours.
                 </p>
               </div>
 
               <div className="absolute -bottom-6 -left-6 hidden rounded-2xl bg-white p-5 shadow-xl ring-1 ring-navy-100 sm:block">
-                <p className="font-display text-3xl font-bold text-brand-600">96%</p>
+                <p className="font-display text-3xl font-bold text-brand-600">
+                  96%
+                </p>
                 <p className="text-xs font-medium text-navy-500">
                   hit their target
                   <br />
@@ -460,7 +509,9 @@ export default function Home() {
                     “{t.quote}”
                   </blockquote>
                   <figcaption className="mt-6 border-t border-navy-100 pt-5">
-                    <p className="font-display font-bold text-navy-900">{t.name}</p>
+                    <p className="font-display font-bold text-navy-900">
+                      {t.name}
+                    </p>
                     <p className="text-xs text-navy-500">{t.role}</p>
                   </figcaption>
                 </figure>

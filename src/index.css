@@ -67,7 +67,7 @@
   }
 
   .btn-primary {
-    @apply bg-brand-500 text-white shadow-lg shadow-brand-500/25
+    @apply bg-brand-500 text-white shadow-brand-500/25
            hover:bg-brand-600 hover:shadow-xl hover:shadow-brand-500/30 hover:-translate-y-0.5;
   }
 

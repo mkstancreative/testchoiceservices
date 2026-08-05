@@ -1,6 +1,10 @@
 // ---------------------------------------------------------------------------
 // Exam catalogue. Fees are intentionally left as "On request" because exam
 // board pricing changes often — update `fee` per exam when you publish rates.
+//
+// `variants` is optional: use it when a board runs several versions of the same
+// exam (PTE Academic / Core / Academic UKVI, IELTS Academic / General Training).
+// Candidates pick the variant by name on the registration form.
 // ---------------------------------------------------------------------------
 
 export const categories = [
@@ -47,6 +51,16 @@ export const exams = [
     validity: "2 years",
     fee: "On request",
     acceptedBy: ["UKVI", "Australian immigration", "11,000+ institutions"],
+    variants: [
+      {
+        name: "IELTS Academic",
+        note: "For university admission and professional registration — the Reading and Writing tasks use academic material.",
+      },
+      {
+        name: "IELTS General Training",
+        note: "For migration to the UK, Australia, Canada and New Zealand, plus work and secondary education — everyday and workplace material.",
+      },
+    ],
     highlights: [
       "Academic and General Training pathways",
       "Live Speaking rehearsals with examiner-style feedback",
@@ -55,8 +69,8 @@ export const exams = [
   },
   {
     id: "pte",
-    name: "PTE Academic",
-    full: "Pearson Test of English Academic",
+    name: "PTE",
+    full: "Pearson Test of English",
     category: "english",
     board: "Pearson",
     accent: "from-violet-500 to-purple-700",
@@ -67,9 +81,24 @@ export const exams = [
     scoring: "10 – 90 (Global Scale of English)",
     validity: "2 years",
     fee: "On request",
-    acceptedBy: ["Australia", "New Zealand", "UK", "Canada"],
+    acceptedBy: ["Australia", "New Zealand", "UK Visas & Immigration", "IRCC Canada"],
+    variants: [
+      {
+        name: "PTE Academic",
+        note: "For university admission and study visas — academic content, accepted by institutions in Australia, New Zealand, the UK, Canada and the US.",
+      },
+      {
+        name: "PTE Core",
+        note: "General rather than academic English, approved by IRCC for Canadian economic immigration and used for work and professional routes.",
+      },
+      {
+        name: "PTE Academic UKVI",
+        note: "The Home Office approved SELT version, taken at a UKVI-approved centre under secure identity conditions for UK visa applications.",
+      },
+    ],
     highlights: [
       "Rapid results — usually inside two days",
+      "Guidance on choosing between Academic, Core and Academic UKVI",
       "Template-driven strategies for Speaking and Writing",
       "Unlimited scored practice on Pearson-style software",
     ],

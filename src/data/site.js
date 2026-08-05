@@ -5,7 +5,7 @@
 
 export const site = {
   name: "Test Choice Services",
-  shortName: "Apex",
+  shortName: "Test Choice",
   tagline: "Nigeria's trusted exam registration & preparation centre",
   legalName: "Test Choice Services Nigeria Ltd",
   phone: "+234 906 675 5226",
@@ -31,7 +31,7 @@ export const site = {
   ],
   // Google Maps embed — replace the q= value with the real centre address.
   mapEmbed:
-    "https://www.google.com/maps?q=Awolowo+Road+Ikoyi+Lagos+Nigeria&output=embed",
+    "https://www.google.com/maps?q=TEST+CHOICE+SERVICES+LIMITED,+Area+L,+World+Bank,+Block+49,+L'arcade+Shopping+Complex,+Okohia+Layout,+Owerri,+Imo&output=embed",
 };
 
 export const navLinks = [

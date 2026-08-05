@@ -265,7 +265,7 @@ export default function About() {
                 transition={{ duration: 0.6, ease: [0.21, 0.6, 0.35, 1] }}
               >
                 <span
-                  className={`absolute left-0 top-1.5 flex h-8 w-8 items-center justify-center rounded-full border-4 border-white bg-brand-500 shadow-lg md:left-auto ${
+                  className={`absolute left-0 top-1.5 flex h-8 w-8 items-center justify-center rounded-full border-4 border-white bg-brand-500  md:left-auto ${
                     i % 2 === 0 ? "md:-right-4" : "md:-left-4"
                   }`}
                   aria-hidden="true"
@@ -285,7 +285,7 @@ export default function About() {
       </section>
 
       {/* --------------------------------------------------------------- Team */}
-      <section className="bg-navy-50/50 py-20 lg:py-28">
+      {/* <section className="bg-navy-50/50 py-20 lg:py-28">
         <div className="container-page">
           <SectionHeading
             align="center"
@@ -324,7 +324,7 @@ export default function About() {
             </p>
           </Reveal>
         </div>
-      </section>
+      </section> */}
 
       <CTABand
         title="Come and see the centre"

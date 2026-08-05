@@ -95,6 +95,19 @@ export default function Exams() {
                   </p>
                   <p className="mt-3 text-sm leading-relaxed text-navy-600">{exam.summary}</p>
 
+                  {exam.variants && (
+                    <div className="mt-4 flex flex-wrap gap-1.5">
+                      {exam.variants.map((v) => (
+                        <span
+                          key={v.name}
+                          className="rounded-full bg-navy-50 px-2.5 py-1 text-[11px] font-medium text-navy-600"
+                        >
+                          {v.name}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
                   <dl className="mt-6 space-y-2.5 border-t border-navy-100 pt-5 text-sm">
                     <div className="flex items-start gap-2.5">
                       <Timer className="mt-0.5 h-4 w-4 shrink-0 text-brand-500" />
@@ -168,6 +181,36 @@ export default function Exams() {
 
                     <div className="p-8 lg:col-span-8">
                       <p className="text-base leading-relaxed text-navy-700">{exam.summary}</p>
+
+                      {exam.variants && (
+                        <>
+                          <h4 className="mt-8 font-display text-sm font-bold uppercase tracking-widest text-navy-900">
+                            Which version do you need?
+                          </h4>
+                          <ul className="mt-4 space-y-3">
+                            {exam.variants.map((v) => (
+                              <li
+                                key={v.name}
+                                className="rounded-xl border border-navy-100 bg-navy-50/50 p-4"
+                              >
+                                <p className="font-display text-sm font-bold text-navy-900">
+                                  {v.name}
+                                </p>
+                                <p className="mt-1 text-sm leading-relaxed text-navy-600">
+                                  {v.note}
+                                </p>
+                                <Link
+                                  to="/registration"
+                                  state={{ exam: v.name }}
+                                  className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-navy-900 transition-all hover:gap-3 hover:text-brand-600"
+                                >
+                                  Register for {v.name} <ArrowRight className="h-3.5 w-3.5" />
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </>
+                      )}
 
                       <h4 className="mt-8 font-display text-sm font-bold uppercase tracking-widest text-navy-900">
                         How we prepare you
