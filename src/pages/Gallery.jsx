@@ -36,6 +36,7 @@ const items = [
     group: "centre",
     title: "Reception & candidate check-in",
     caption: "Where every candidate is verified before entering the testing area.",
+    src: "/gallery/reception.jpg",
     accent: "from-navy-700 to-navy-950",
     span: "lg:col-span-2 lg:row-span-2",
   },
@@ -44,6 +45,7 @@ const items = [
     group: "classes",
     title: "IELTS speaking clinic",
     caption: "Small-group speaking practice with recorded feedback.",
+    src: "/gallery/speaking-clinic.jpg",
     accent: "from-brand-500 to-emerald-800",
   },
   {
@@ -51,6 +53,7 @@ const items = [
     group: "digital",
     title: "Computer-based testing lab",
     caption: "Individual stations set up to mirror the real exam interface.",
+    src: "/front-view-concentrated-woman-working-with-laptop-library.jpg",
     accent: "from-blue-600 to-indigo-900",
   },
   {
@@ -58,6 +61,7 @@ const items = [
     group: "candidates",
     title: "Results day",
     caption: "A CELPIP candidate collecting the level she needed for Express Entry.",
+    src: "/gallery/results-day.jpg",
     accent: "from-amber-500 to-orange-800",
   },
   {
@@ -65,6 +69,7 @@ const items = [
     group: "classes",
     title: "GRE quantitative session",
     caption: "Working through data interpretation under exam timing.",
+    src: "/gallery/gre-quant.jpg",
     accent: "from-cyan-600 to-sky-900",
   },
   {
@@ -72,6 +77,7 @@ const items = [
     group: "centre",
     title: "Study lounge",
     caption: "Quiet space for candidates to revise between sessions.",
+    src: "/classmates-studying-from-notebook-laptop-study-session.jpg",
     accent: "from-teal-600 to-emerald-900",
     span: "lg:col-span-2",
   },
@@ -80,20 +86,15 @@ const items = [
     group: "digital",
     title: "Mock test in progress",
     caption: "Full-length mocks run under the same conditions as the real thing.",
+    src: "/gallery/mock-test.jpg",
     accent: "from-violet-600 to-purple-900",
   },
   {
     id: 8,
-    group: "candidates",
-    title: "OET nursing cohort",
-    caption: "Healthcare professionals preparing for UK and Australian registration.",
-    accent: "from-rose-500 to-red-800",
-  },
-  {
-    id: 9,
     group: "classes",
     title: "Writing feedback workshop",
     caption: "Marked scripts reviewed against official band descriptors.",
+    src: "/young-person-taking-notes-textbook-paper-with-pen-looking-modern-laptop-woman-writing-information-notebook-files-doing-remote-work-adult-working-from-home-business.jpg",
     accent: "from-lime-600 to-green-900",
   },
 ];

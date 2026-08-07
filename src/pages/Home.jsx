@@ -319,6 +319,20 @@ export default function Home() {
                   <p className="mt-4 text-sm leading-relaxed text-navy-600">
                     {exam.summary}
                   </p>
+
+                  {exam.variants && (
+                    <div className="mt-4 flex flex-wrap gap-1.5">
+                      {exam.variants.map((v) => (
+                        <span
+                          key={v.name}
+                          className="rounded-full bg-navy-50 px-2.5 py-1 text-[11px] font-medium text-navy-600"
+                        >
+                          {v.name}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
                   <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-navy-900 transition-all group-hover:gap-3 group-hover:text-brand-600">
                     Exam details <ArrowRight className="h-4 w-4" />
                   </span>
