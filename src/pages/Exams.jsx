@@ -1,143 +1,21 @@
-import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
-import {
-  ArrowRight,
-  BadgeCheck,
-  CalendarClock,
-  ClipboardCheck,
-  GraduationCap,
-  Layers,
-  Timer,
-} from "lucide-react";
+import { ArrowRight, BadgeCheck, Layers } from "lucide-react";
 
 import PageHero from "../components/PageHero";
 import SectionHeading from "../components/SectionHeading";
 import Reveal, { RevealGroup, RevealItem } from "../components/Reveal";
 import CTABand from "../components/CTABand";
-import { categories, exams, otherExams } from "../data/exams";
+import { comingSoon, exams } from "../data/exams";
 
 export default function Exams() {
-  const [active, setActive] = useState("all");
-
-  const visible = useMemo(
-    () => (active === "all" ? exams : exams.filter((e) => e.category === active)),
-    [active]
-  );
-
   return (
     <>
       <PageHero
         eyebrow={<><Layers className="h-3.5 w-3.5" /> Exam catalogue</>}
-        title="Eleven exams. One secure centre. Sit your test in Owerri."
-        subtitle="Filter by what you need the exam for — study, admission or migration — then book a seat on a date that suits your deadline."
+        title="Sit TOEFL iBT at a secure centre in Owerri."
+        subtitle={`Book a seat on a date that suits your deadline. ${comingSoon.join(", ")} and others coming soon.`}
         breadcrumb="Exams"
       />
-
-      {/* ------------------------------------------------------------ Filters */}
-      <section className="container-page py-16 lg:py-20">
-        <Reveal className="flex flex-wrap justify-center gap-3">
-          {categories.map((cat) => {
-            const isActive = active === cat.id;
-            return (
-              <button
-                key={cat.id}
-                type="button"
-                onClick={() => setActive(cat.id)}
-                className={`relative rounded-full px-6 py-2.5 text-sm font-semibold transition-colors ${
-                  isActive ? "text-white" : "text-navy-600 hover:text-brand-600"
-                }`}
-                aria-pressed={isActive}
-              >
-                {isActive && (
-                  <motion.span
-                    layoutId="exam-filter-pill"
-                    className="absolute inset-0 -z-10 rounded-full bg-navy-900"
-                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                  />
-                )}
-                {!isActive && (
-                  <span className="absolute inset-0 -z-10 rounded-full border border-navy-200 bg-white" />
-                )}
-                {cat.label}
-              </button>
-            );
-          })}
-        </Reveal>
-
-        <motion.div layout className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <AnimatePresence mode="popLayout">
-            {visible.map((exam) => (
-              <motion.article
-                key={exam.id}
-                layout
-                initial={{ opacity: 0, scale: 0.94, y: 24 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.94, y: -12 }}
-                transition={{ duration: 0.4, ease: [0.21, 0.6, 0.35, 1] }}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-navy-100 bg-white shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-navy-900/5"
-              >
-                <div className={`bg-gradient-to-br ${exam.accent} px-7 py-6 text-white`}>
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <h2 className="font-display text-2xl font-bold">{exam.name}</h2>
-                      <p className="mt-1 text-xs font-medium uppercase tracking-wider text-white/75">
-                        {exam.board}
-                      </p>
-                    </div>
-                    <GraduationCap className="h-7 w-7 shrink-0 text-white/50 transition-transform duration-300 group-hover:scale-110" />
-                  </div>
-                </div>
-
-                <div className="flex flex-1 flex-col p-7">
-                  <p className="text-xs font-medium uppercase tracking-wider text-navy-400">
-                    {exam.full}
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-navy-600">{exam.summary}</p>
-
-                  {exam.variants && (
-                    <div className="mt-4 flex flex-wrap gap-1.5">
-                      {exam.variants.map((v) => (
-                        <span
-                          key={v.name}
-                          className="rounded-full bg-navy-50 px-2.5 py-1 text-[11px] font-medium text-navy-600"
-                        >
-                          {v.name}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-
-                  <dl className="mt-6 space-y-2.5 border-t border-navy-100 pt-5 text-sm">
-                    <div className="flex items-start gap-2.5">
-                      <Timer className="mt-0.5 h-4 w-4 shrink-0 text-brand-500" />
-                      <dt className="sr-only">Duration</dt>
-                      <dd className="text-navy-600">{exam.duration}</dd>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <ClipboardCheck className="mt-0.5 h-4 w-4 shrink-0 text-brand-500" />
-                      <dt className="sr-only">Scoring</dt>
-                      <dd className="text-navy-600">{exam.scoring}</dd>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <CalendarClock className="mt-0.5 h-4 w-4 shrink-0 text-brand-500" />
-                      <dt className="sr-only">Validity</dt>
-                      <dd className="text-navy-600">Valid for {exam.validity}</dd>
-                    </div>
-                  </dl>
-
-                  <a
-                    href={`#${exam.id}`}
-                    className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy-900 transition-all hover:gap-3 hover:text-brand-600"
-                  >
-                    Full breakdown <ArrowRight className="h-4 w-4" />
-                  </a>
-                </div>
-              </motion.article>
-            ))}
-          </AnimatePresence>
-        </motion.div>
-      </section>
 
       {/* -------------------------------------------------- Detailed sections */}
       <section className="bg-navy-50/50 py-20 lg:py-28">
@@ -145,7 +23,7 @@ export default function Exams() {
           <SectionHeading
             align="center"
             eyebrow="In detail"
-            title="What each exam involves, and how it runs at our centre"
+            title="What the exam involves, and how it runs at our centre"
           />
 
           <div className="mt-16 space-y-6">
@@ -259,19 +137,19 @@ export default function Exams() {
         </div>
       </section>
 
-      {/* --------------------------------------------------------- Other exams */}
+      {/* --------------------------------------------------------- Coming soon */}
       <section className="container-page py-20 lg:py-28">
         <SectionHeading
           align="center"
-          eyebrow="And others"
-          title="Not on the list? Ask us anyway"
-          subtitle="Professional and certification exams may be available at our centre depending on the provider. Ask us — if we cannot host it, we will say so up front."
+          eyebrow="Coming soon"
+          title={`${comingSoon.join(", ")} and others coming soon`}
+          subtitle="We are preparing to host more exams at our centre. Get in touch and we will let you know as soon as bookings open."
         />
 
         <RevealGroup className="mx-auto mt-12 flex max-w-4xl flex-wrap justify-center gap-3">
-          {otherExams.map((name) => (
+          {[...comingSoon, "and others"].map((name) => (
             <RevealItem key={name}>
-              <span className="inline-block rounded-full border border-navy-200 bg-white px-5 py-2.5 text-sm font-medium text-navy-700 transition hover:border-brand-400 hover:text-brand-600">
+              <span className="inline-block rounded-full border border-dashed border-navy-200 bg-white px-5 py-2.5 text-sm font-medium text-navy-500">
                 {name}
               </span>
             </RevealItem>
@@ -280,7 +158,7 @@ export default function Exams() {
 
         <Reveal delay={0.2} className="mt-10 text-center">
           <Link to="/contact" className="btn-dark">
-            Ask about another exam <ArrowRight className="h-4 w-4" />
+            Ask to be notified <ArrowRight className="h-4 w-4" />
           </Link>
         </Reveal>
       </section>

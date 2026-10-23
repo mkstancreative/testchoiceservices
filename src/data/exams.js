@@ -8,13 +8,6 @@
 // Candidates pick the variant by name on the booking form.
 // ---------------------------------------------------------------------------
 
-export const categories = [
-  { id: "all", label: "All exams" },
-  { id: "english", label: "English proficiency" },
-  { id: "academic", label: "Academic admissions" },
-  { id: "professional", label: "Professional & migration" },
-];
-
 export const exams = [
   {
     id: "toefl",
@@ -37,6 +30,11 @@ export const exams = [
       "Check-in and ID verification completed before your start time",
     ],
   },
+];
+
+// Not bookable yet — kept here so each one can be moved back into `exams` when
+// the centre starts offering it. Only the names are shown, as "coming soon".
+export const upcomingExams = [
   {
     id: "ielts",
     name: "IELTS",
@@ -273,15 +271,5 @@ export const exams = [
   },
 ];
 
-export const otherExams = [
-  "NCLEX-RN",
-  "PMP",
-  "CFA",
-  "ACCA",
-  "ISACA (CISA / CISM)",
-  "AWS Certification",
-  "CompTIA",
-  "LSAT",
-  "MCAT",
-  "USMLE",
-];
+// Shown on the site as "CELPIP, PTE, GRE, SAT and others coming soon".
+export const comingSoon = ["CELPIP", "PTE", "GRE", "SAT"];

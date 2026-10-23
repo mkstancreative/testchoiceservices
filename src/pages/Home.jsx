@@ -18,11 +18,10 @@ import {
 
 import Reveal, { RevealGroup, RevealItem } from "../components/Reveal";
 import SectionHeading from "../components/SectionHeading";
-import Counter from "../components/Counter";
 import CTABand from "../components/CTABand";
 import PartnerMarquee from "../components/PartnerMarquee";
-import { site, stats } from "../data/site";
-import { exams } from "../data/exams";
+import { site } from "../data/site";
+import { comingSoon, exams } from "../data/exams";
 
 const features = [
   {
@@ -103,6 +102,7 @@ const testimonials = [
 
 export default function Home() {
   const featured = exams.slice(0, 6);
+  const comingSoonLine = `${comingSoon.join(", ")} and others coming soon`;
 
   return (
     <>
@@ -152,9 +152,9 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              {site.name} hosts TOEFL, IELTS, PTE, SELT, OET, Duolingo, SAT, ACT,
-              GRE, GMAT and CELPIP in Owerri — a quiet, supervised test room
-              with careful check-in, so test day is the easy part.
+              {site.name} hosts TOEFL iBT in Owerri — a quiet, supervised test
+              room with careful check-in, so test day is the easy part.{" "}
+              {comingSoonLine}.
             </motion.p>
 
             <motion.div
@@ -167,7 +167,7 @@ export default function Home() {
                 Book a seat <ArrowRight className="h-4 w-4" />
               </Link>
               <Link to="/exams" className="btn-outline">
-                Browse all exams
+                About the exam
               </Link>
             </motion.div>
 
@@ -215,10 +215,8 @@ export default function Home() {
 
               <ul className="mt-6 space-y-3">
                 {[
-                  { exam: "IELTS Academic", note: "Computer-delivered · Owerri" },
                   { exam: "TOEFL iBT", note: "Secure workstation, headset provided" },
-                  { exam: "PTE Academic", note: "Biometric-ready check-in" },
-                  { exam: "GRE · GMAT · SAT", note: "Graduate & admissions tests" },
+                  { exam: comingSoon.join(" · "), note: "And others coming soon" },
                 ].map((row, i) => (
                   <motion.li
                     key={row.exam}
@@ -261,36 +259,18 @@ export default function Home() {
 
       <PartnerMarquee />
 
-      {/* --------------------------------------------------------------- Stats */}
-      <section className="container-page py-16 lg:py-20">
-        <RevealGroup className="grid grid-cols-2 gap-6 lg:grid-cols-4">
-          {stats.map((s) => (
-            <RevealItem key={s.label}>
-              <div className="rounded-2xl border border-navy-100 bg-gradient-to-b from-white to-navy-50/50 p-7 text-center">
-                <p className="font-display text-4xl font-bold text-navy-900 lg:text-5xl">
-                  <Counter value={s.value} suffix={s.suffix} />
-                </p>
-                <p className="mt-2 text-sm font-medium text-navy-500">
-                  {s.label}
-                </p>
-              </div>
-            </RevealItem>
-          ))}
-        </RevealGroup>
-      </section>
-
       {/* --------------------------------------------------------------- Exams */}
       <section className="bg-navy-50/50 py-20 lg:py-28">
         <div className="container-page">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <SectionHeading
               eyebrow="Exams we host"
-              title="Every major English and admissions exam, under one roof"
-              subtitle="Take the tests universities, employers and immigration authorities actually ask for — at a centre close to home."
+              title="TOEFL iBT, at a centre close to home"
+              subtitle={`The English test universities across the US, Canada and 160+ countries ask for. ${comingSoonLine}.`}
             />
             <Reveal delay={0.15}>
               <Link to="/exams" className="btn-dark shrink-0">
-                See all exams <ArrowRight className="h-4 w-4" />
+                Exam details <ArrowRight className="h-4 w-4" />
               </Link>
             </Reveal>
           </div>
@@ -334,6 +314,18 @@ export default function Home() {
                     Exam details <ArrowRight className="h-4 w-4" />
                   </span>
                 </Link>
+              </RevealItem>
+            ))}
+            {[...comingSoon, "And others"].map((name) => (
+              <RevealItem key={name}>
+                <div className="flex h-full flex-col justify-between rounded-2xl border border-dashed border-navy-200 bg-white/60 p-7">
+                  <h3 className="font-display text-xl font-bold text-navy-400">
+                    {name}
+                  </h3>
+                  <span className="mt-5 inline-flex w-fit rounded-full bg-navy-50 px-3 py-1 text-xs font-semibold text-navy-500">
+                    Coming soon
+                  </span>
+                </div>
               </RevealItem>
             ))}
           </RevealGroup>

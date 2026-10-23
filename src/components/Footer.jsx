@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { GraduationCap, Mail, MapPin, Phone } from "lucide-react";
 import { navLinks, site } from "../data/site";
-import { exams } from "../data/exams";
+import { comingSoon, exams } from "../data/exams";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -21,7 +21,7 @@ export default function Footer() {
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-navy-300">
               A secure, supervised computer-based test centre in Owerri for the world's leading
-              English proficiency and admissions exams — sit your test close to home.
+              English proficiency exams — sit your test close to home.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               {site.socials.map((s) => (
@@ -67,6 +67,9 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+            <p className="mt-3 text-sm text-navy-400">
+              {comingSoon.join(", ")} and others coming soon.
+            </p>
           </div>
 
           <div className="lg:col-span-3">
