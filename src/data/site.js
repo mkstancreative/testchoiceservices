@@ -14,6 +14,8 @@ export const site = {
   whatsappHref: "https://wa.me/2349066755226",
   email: "choiceserviceslimitedtest@gmail.com",
   emailHref: "mailto:choiceserviceslimitedtest@gmail.com",
+  email2: "info@testchoiceservices.com",
+  email2Href: "mailto:info@testchoiceservices.com",
   address: {
     line1: "Block 49, L'arcade Shopping Complex, Okohia Layout Area L, World Bank, ",
     line2: "Owerri Municipal, Imo State",

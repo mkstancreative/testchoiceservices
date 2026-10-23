@@ -39,7 +39,7 @@ const channels = [
   {
     icon: Mail,
     title: "Email",
-    lines: [site.email],
+    lines: [site.email, site.email2],
     href: site.emailHref,
     cta: "Send an email",
   },

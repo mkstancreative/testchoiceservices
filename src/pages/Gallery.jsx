@@ -44,7 +44,7 @@ const items = [
     group: "digital",
     title: "Computer-based testing lab",
     caption: "Individual stations set up to mirror the real exam interface.",
-    src: "/front-view-concentrated-woman-working-with-laptop-library.jpg",
+    src: "/gallery/library-study.jpg",
     accent: "from-blue-600 to-indigo-900",
   },
   {
@@ -60,7 +60,7 @@ const items = [
     group: "centre",
     title: "Waiting lounge",
     caption: "A quiet place to settle before check-in.",
-    src: "/classmates-studying-from-notebook-laptop-study-session.jpg",
+    src: "/gallery/study-session.jpg",
     accent: "from-teal-600 to-emerald-900",
     span: "lg:col-span-2",
   },
@@ -77,7 +77,7 @@ const items = [
     group: "candidates",
     title: "Focused on the screen",
     caption: "A candidate at a workstation in the testing area.",
-    src: "/young-person-taking-notes-textbook-paper-with-pen-looking-modern-laptop-woman-writing-information-notebook-files-doing-remote-work-adult-working-from-home-business.jpg",
+    src: "/gallery/note-taking.jpg",
     accent: "from-lime-600 to-green-900",
   },
 ];

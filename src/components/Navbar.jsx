@@ -42,6 +42,9 @@ export default function Navbar() {
             <a href={site.emailHref} className="transition hover:text-white">
               {site.email}
             </a>
+            <a href={site.email2Href} className="hidden transition hover:text-white xl:inline">
+              {site.email2}
+            </a>
           </div>
         </div>
       </div>
